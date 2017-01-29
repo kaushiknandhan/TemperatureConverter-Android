@@ -1,14 +1,18 @@
 package com.temperatureconverter.kaushiknandhan.temperatureconverter;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText text;// Create text object to get the input value
+    View view; //create object to manipulate background color
+    ImageView iv; //create iv object to manipulate image view
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +47,36 @@ public class MainActivity extends AppCompatActivity {
                     text.setText(String.valueOf(ConverterUtil.convertFahrenheitToCelsius(inputValue)));// text value is displayed after conversion
                     fahrenheitButton.setChecked(false);
                     celsiusButton.setChecked(true);
+                }
+                //grab CURRENT result value now in Text Field
+                inputValue = Float.parseFloat(text.getText().toString());
+                view = findViewById(R.id.activity_main);
+                iv=(ImageView) findViewById(R.id.imageView);
+                if (inputValue>90){
+                    //set hex color to skyblue
+                    view.setBackgroundColor(Color.parseColor("#87ceff"));
+                    iv.setVisibility(View.VISIBLE);
+                    //clear any prior image
+                    ((ImageView) iv.findViewById(R.id.imageView)).setImageResource(0);
+                    iv.setImageResource(R.drawable.sun);  //show sun on image
+
+                }
+                else if(inputValue<0){
+                    //set hex color to Red
+                    view.setBackgroundColor(Color.parseColor("#DC143C"));
+                    iv.setVisibility(View.VISIBLE);
+                    //clear any prior image
+                    ((ImageView) iv.findViewById(R.id.imageView)).setImageResource(0);
+                    iv.setImageResource(R.drawable.snowfall);  //show snowfall on image
+
+                }
+                else {
+                    // set color to yellow
+                    view.setBackgroundColor(Color.YELLOW);
+                    // set imageview to invisible if the input is between 0 and 90
+                    iv.setVisibility(View.INVISIBLE);
+                    //clear any prior image
+                    ((ImageView) iv.findViewById(R.id.imageView)).setImageResource(0);
                 }
                 break;
         }
