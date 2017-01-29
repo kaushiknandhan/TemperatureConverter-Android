@@ -5,8 +5,7 @@
 **/local.properties
 **/.idea
 **/.DS_Store
-**/build/workspace.xml
-**/build/libraries
+**/build
 **/captures
 **/.externalNativeBuild
 **/bin
