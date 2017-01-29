@@ -1,5 +1,10 @@
 package com.temperatureconverter.kaushiknandhan.temperatureconverter;
-
+/**
+ * Temperature conversion app!
+ * This application converts and displays the temparature in celcius or fahrenheit depending on the input given.
+ * Depending on thetemparture, the background color of the layout and the image is displayed.
+ * Controls for this app include edittext, button, radiogroup, radio buttons and an imageview.
+ */
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
